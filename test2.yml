@@ -1,0 +1,391 @@
+# https://example.com/Clash.yaml
+
+
+
+
+
+
+
+external-controller: 127.0.0.1:7892
+port: 7890
+socks-port: 7891
+
+Proxy: [{"type":"vmess","cipher":"auto","name":"233v2.com_www.okashi2434.space","server":"www.okashi2434.space","port":"443","uuid":"c581fbc1-4dd4-4dc5-8919-cf0bfd29b137","alterId":"4","network":"ws","tls":true,"ws-path":"/7216ma","ws-headers":{"host":"www.okashi2434.space"}}]
+
+Proxy Group:
+- type: select
+  name: 🚀 Proxy
+  proxies: ["233v2.com_www.okashi2434.space"]
+- type: select
+  name: 🍎 Apple
+  proxies:
+    - DIRECT
+    - 🚀 Proxy
+    - US
+    - HK
+- type: select
+  name: 🍎 Apple CDN
+  proxies:
+    - DIRECT
+    - 🍎 Apple
+
+Rule:
+# http://www.jjinc.com.au/announcements/apple170008services
+#
+# Apple 直连
+#
+# Maps
+# Settings
+#
+# 一些 com.apple.appstored* 会连接的 API（优先级高）
+#
+- DOMAIN,apps.apple.com,🍎 Apple
+- DOMAIN,xp.apple.com,🍎 Apple
+- DOMAIN,bag.itunes.apple.com,🍎 Apple
+- DOMAIN,api-edge.apps.apple.com,🍎 Apple
+- DOMAIN,api.apps.apple.com,🍎 Apple
+- DOMAIN,play.itunes.apple.com,🍎 Apple
+- DOMAIN,se.itunes.apple.com,🍎 Apple
+- DOMAIN,se-edge.itunes.apple.com,🍎 Apple
+- DOMAIN,su.itunes.apple.com,🍎 Apple
+- DOMAIN,upp.itunes.apple.com,🍎 Apple
+- DOMAIN,beta.music.apple.com,🍎 Apple
+- DOMAIN-KEYWORD,buy.itunes.apple.com,🍎 Apple
+#
+# Apple Global CDN
+#
+# iOS App Store
+- DOMAIN,iosapps.itunes.apple.com,🍎 Apple CDN
+# Mac App Store
+- DOMAIN,osxapps.itunes.apple.com,🍎 Apple CDN
+# Update
+- DOMAIN,supportdownload.apple.com,🍎 Apple CDN
+# Update
+- DOMAIN,appldnld.apple.com,🍎 Apple CDN
+# Update
+- DOMAIN,swcdn.apple.com,🍎 Apple CDN
+- DOMAIN,apptrailers.itunes.apple.com,🍎 Apple CDN
+- DOMAIN,updates-http.cdn-apple.com,🍎 Apple CDN
+# App Store & iTunes Images
+- DOMAIN-SUFFIX,mzstatic.com,🍎 Apple CDN
+# Mac App Store
+# iOS App Store
+#
+# Apple Non-China CDN
+#
+# Trailer
+- DOMAIN-SUFFIX,hls.itunes.apple.com,🚀 Proxy
+# Movie Stream
+- DOMAIN-SUFFIX,hls-amt.itunes.apple.com,🚀 Proxy
+# iTunes Music Stream
+- DOMAIN-SUFFIX,audio-ssl.itunes.apple.com,🚀 Proxy
+- DOMAIN-SUFFIX,cdn-apple.com,🚀 Proxy
+- DOMAIN,cdn.apple-cloudkit.com,🚀 Proxy
+# Developer
+- DOMAIN,devimages-cdn.apple.com,🚀 Proxy
+# Developer
+- DOMAIN,devstreaming-cdn.apple.com,🚀 Proxy
+- DOMAIN,js-cdn.music.apple.com,🚀 Proxy
+#
+# Apple News
+#
+- DOMAIN-SUFFIX,apple.news,US
+- DOMAIN,news-events.apple.com,US
+- DOMAIN,news-edge.apple.com,US
+- DOMAIN,apple.comscoreresearch.com,US
+#
+# Apple 其他直连
+#
+- DOMAIN,api.smoot.apple.com,DIRECT
+- DOMAIN,captive.apple.com,DIRECT
+- DOMAIN,configuration.apple.com,DIRECT
+- DOMAIN,guzzoni.apple.com,DIRECT
+# Apple Pay
+- DOMAIN,smp-device-content.apple.com,DIRECT
+# Apple Music Streaming
+- DOMAIN,aod.itunes.apple.com,DIRECT
+- DOMAIN,api.smoot.apple.cn,DIRECT
+# locationd
+- DOMAIN,gs-loc.apple.com,DIRECT
+# Apple Music Streaming
+- DOMAIN,mvod.itunes.apple.com,DIRECT
+# Apple Music Streaming
+- DOMAIN,streamingaudio.itunes.apple.com,DIRECT
+# Reserve
+- DOMAIN,reserve-prime.apple.com,DIRECT
+- DOMAIN-SUFFIX,ess.apple.com,DIRECT
+- DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
+- DOMAIN-SUFFIX,push.apple.com,DIRECT
+# Apple Music
+- DOMAIN-SUFFIX,music.apple.com,DIRECT
+# GeoServices.framework
+- DOMAIN-SUFFIX,ls.apple.com,DIRECT
+# Asset Cache Locator Service
+- DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+# Caching Server Registration
+- DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+# Apple Pay
+- DOMAIN-KEYWORD,smp-device,DIRECT
+# Apple Pay
+# Apple Pay
+#
+# Apple 其他自选
+#
+- DOMAIN-SUFFIX,aaplimg.com,🍎 Apple
+- DOMAIN-SUFFIX,apple.co,🍎 Apple
+- DOMAIN-SUFFIX,itunes.com,🍎 Apple
+- DOMAIN-SUFFIX,itunes.apple.com,🍎 Apple
+# iCloud 上传和下载
+- DOMAIN-SUFFIX,icloud-content.com,🍎 Apple
+- DOMAIN-SUFFIX,me.com,🍎 Apple
+- DOMAIN-SUFFIX,apple.com,🍎 Apple
+- DOMAIN-SUFFIX,icloud.com,🍎 Apple
+- DOMAIN-SUFFIX,apple-cloudkit.com,🍎 Apple
+# > Netflix
+- DOMAIN-SUFFIX,fast.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflix.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflix.net,🎬 Netflix
+- DOMAIN-SUFFIX,nflxext.com,🎬 Netflix
+- DOMAIN-SUFFIX,nflximg.com,🎬 Netflix
+- DOMAIN-SUFFIX,nflximg.net,🎬 Netflix
+- DOMAIN-SUFFIX,nflxso.net,🎬 Netflix
+- DOMAIN-SUFFIX,nflxvideo.net,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest0.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest1.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest2.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest3.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest4.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest5.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest6.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest7.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest8.com,🎬 Netflix
+- DOMAIN-SUFFIX,netflixdnstest9.com,🎬 Netflix
+- IP-CIDR,23.246.0.0/18,🎬 Netflix,no-resolve
+- IP-CIDR,37.77.184.0/21,🎬 Netflix,no-resolve
+- IP-CIDR,45.57.0.0/17,🎬 Netflix,no-resolve
+- IP-CIDR,64.120.128.0/17,🎬 Netflix,no-resolve
+- IP-CIDR,66.197.128.0/17,🎬 Netflix,no-resolve
+- IP-CIDR,108.175.32.0/20,🎬 Netflix,no-resolve
+- IP-CIDR,192.173.64.0/18,🎬 Netflix,no-resolve
+- IP-CIDR,198.38.96.0/19,🎬 Netflix,no-resolve
+- IP-CIDR,198.45.48.0/20,🎬 Netflix,no-resolve
+# > HBO NOW
+- DOMAIN-SUFFIX,hbo.com,🚀 Proxy
+- DOMAIN-SUFFIX,hbogo.com,🚀 Proxy
+- DOMAIN-SUFFIX,hbonow.com,🚀 Proxy
+# > Hulu
+- DOMAIN-SUFFIX,hulu.com,🚀 Proxy
+- DOMAIN-SUFFIX,huluim.com,🚀 Proxy
+- DOMAIN-SUFFIX,hulustream.com,🚀 Proxy
+# YouTube
+- DOMAIN,youtubei.googleapis.com,🚀 Proxy
+- DOMAIN-SUFFIX,youtube.com,🚀 Proxy
+- DOMAIN-SUFFIX,googlevideo.com,🚀 Proxy
+- DOMAIN-SUFFIX,youtube-nocookie.com,🚀 Proxy
+- DOMAIN-SUFFIX,youtu.be,🚀 Proxy
+# Youtube Music
+- DOMAIN-SUFFIX,music.youtube.com,🚀 Proxy
+# Luminary
+- DOMAIN-SUFFIX,luminarypodcasts.com,US
+- DOMAIN-SUFFIX,t.me,🚀 Proxy
+- DOMAIN-SUFFIX,tdesktop.com,🚀 Proxy
+- DOMAIN-SUFFIX,telegra.ph,🚀 Proxy
+- DOMAIN-SUFFIX,telegram.me,🚀 Proxy
+- DOMAIN-SUFFIX,telegram.org,🚀 Proxy
+- IP-CIDR,91.108.4.0/22,🚀 Proxy,no-resolve
+- IP-CIDR,91.108.8.0/22,🚀 Proxy,no-resolve
+- IP-CIDR,91.108.12.0/22,🚀 Proxy,no-resolve
+- IP-CIDR,91.108.16.0/22,🚀 Proxy,no-resolve
+- IP-CIDR,91.108.56.0/22,🚀 Proxy,no-resolve
+- IP-CIDR,149.154.160.0/20,🚀 Proxy,no-resolve
+# 可能被屏蔽
+- DOMAIN-KEYWORD,evernote,🚀 Proxy
+# Bloombeg
+# Taiwan
+- DOMAIN-SUFFIX,tw,🚀 Proxy
+- DOMAIN-KEYWORD,bitly,🚀 Proxy
+- DOMAIN-KEYWORD,blogspot,🚀 Proxy
+- DOMAIN-KEYWORD,dropbox,🚀 Proxy
+- DOMAIN-KEYWORD,facebook,🚀 Proxy
+- DOMAIN-KEYWORD,gmail,🚀 Proxy
+- DOMAIN-KEYWORD,google,🚀 Proxy
+- DOMAIN-KEYWORD,instagram,🚀 Proxy
+- DOMAIN-KEYWORD,oculus,🚀 Proxy
+- DOMAIN-KEYWORD,twitter,🚀 Proxy
+- DOMAIN-KEYWORD,whatsapp,🚀 Proxy
+- DOMAIN-KEYWORD,youtube,🚀 Proxy
+- DOMAIN-SUFFIX,cdn.ampproject.org,🚀 Proxy
+- DOMAIN-SUFFIX,fb.com,🚀 Proxy
+- DOMAIN-SUFFIX,fb.me,🚀 Proxy
+- DOMAIN-SUFFIX,fbcdn.net,🚀 Proxy
+- DOMAIN-SUFFIX,gstatic.com,🚀 Proxy
+- DOMAIN-SUFFIX,scdn.co,🚀 Proxy
+- DOMAIN-SUFFIX,t.co,🚀 Proxy
+- DOMAIN-SUFFIX,telegra.ph,🚀 Proxy
+- DOMAIN-SUFFIX,twimg.co,🚀 Proxy
+- DOMAIN-SUFFIX,twimg.com,🚀 Proxy
+- DOMAIN-SUFFIX,twitpic.com,🚀 Proxy
+- DOMAIN-SUFFIX,youtu.be,🚀 Proxy
+- DOMAIN-SUFFIX,ytimg.com,🚀 Proxy
+# Alibaba
+- DOMAIN-KEYWORD,alibaba-inc,DIRECT
+- DOMAIN-KEYWORD,alibaba,DIRECT
+- DOMAIN-KEYWORD,alipay-inc,DIRECT
+- DOMAIN-KEYWORD,aliyuncs,DIRECT
+- DOMAIN-KEYWORD,alipay,DIRECT
+- DOMAIN-KEYWORD,taobao,DIRECT
+- DOMAIN-KEYWORD,alicdn,DIRECT
+- DOMAIN-KEYWORD,aliyun,DIRECT
+- DOMAIN-KEYWORD,9game,DIRECT
+- DOMAIN-KEYWORD,ucweb,DIRECT
+# Battle.net
+- DOMAIN-SUFFIX,blizzard.com,DIRECT
+- DOMAIN-SUFFIX,battle.net,DIRECT
+# P2P
+- DOMAIN-KEYWORD,tracker,DIRECT
+# Booking
+- DOMAIN-SUFFIX,booking.com,DIRECT
+- DOMAIN-SUFFIX,booking.cn,DIRECT
+# Misc
+# iStat Menu IP Test
+- DOMAIN,ip.bjango.com,DIRECT
+- DOMAIN-SUFFIX,biquge.com.tw,DIRECT
+- DOMAIN-SUFFIX,maoyun.tv,DIRECT
+- DOMAIN-SUFFIX,moke.com,DIRECT
+- DOMAIN-SUFFIX,test-ipv6.com,DIRECT
+- DOMAIN-SUFFIX,zimuzu.tv,DIRECT
+- DOMAIN-SUFFIX,zmzapi.com,DIRECT
+- DOMAIN-SUFFIX,zmzapi.net,DIRECT
+- DOMAIN-SUFFIX,zmzfile.com,DIRECT
+# China Apps
+- DOMAIN-SUFFIX,cn,DIRECT
+- DOMAIN-KEYWORD,-cn,DIRECT
+- DOMAIN-KEYWORD,alicdn,DIRECT
+- DOMAIN-SUFFIX,126.com,DIRECT
+- DOMAIN-SUFFIX,126.net,DIRECT
+- DOMAIN-SUFFIX,127.net,DIRECT
+- DOMAIN-SUFFIX,163.com,DIRECT
+- DOMAIN-SUFFIX,360buyimg.com,DIRECT
+- DOMAIN-SUFFIX,36kr.com,DIRECT
+- DOMAIN-SUFFIX,acfun.tv,DIRECT
+- DOMAIN-SUFFIX,air-matters.com,DIRECT
+- DOMAIN-SUFFIX,aixifan.com,DIRECT
+- DOMAIN-SUFFIX,weibo.com,DIRECT
+- DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+- DOMAIN-SUFFIX,amap.com,DIRECT
+- DOMAIN-SUFFIX,autonavi.com,DIRECT
+- DOMAIN-SUFFIX,baidu.com,DIRECT
+- DOMAIN-SUFFIX,baidupcs.com,DIRECT
+- DOMAIN-SUFFIX,bdimg.com,DIRECT
+- DOMAIN-SUFFIX,bdstatic.com,DIRECT
+- DOMAIN-SUFFIX,bilibili.com,DIRECT
+- DOMAIN-SUFFIX,caiyunapp.com,DIRECT
+- DOMAIN-SUFFIX,clouddn.com,DIRECT
+- DOMAIN-SUFFIX,cnbeta.com,DIRECT
+- DOMAIN-SUFFIX,cnbetacdn.com,DIRECT
+- DOMAIN-SUFFIX,cootekservice.com,DIRECT
+- DOMAIN-SUFFIX,csdn.net,DIRECT
+- DOMAIN-SUFFIX,ctrip.com,DIRECT
+- DOMAIN-SUFFIX,dgtle.com,DIRECT
+- DOMAIN-SUFFIX,dianping.com,DIRECT
+- DOMAIN-SUFFIX,douban.com,DIRECT
+- DOMAIN-SUFFIX,doubanio.com,DIRECT
+- DOMAIN-SUFFIX,duokan.com,DIRECT
+- DOMAIN-SUFFIX,easou.com,DIRECT
+- DOMAIN-SUFFIX,ele.me,DIRECT
+- DOMAIN-SUFFIX,fast.com,DIRECT
+- DOMAIN-SUFFIX,feng.com,DIRECT
+- DOMAIN-SUFFIX,fir.im,DIRECT
+- DOMAIN-SUFFIX,frdic.com,DIRECT
+- DOMAIN-SUFFIX,g-cores.com,DIRECT
+- DOMAIN-SUFFIX,godic.net,DIRECT
+- DOMAIN-SUFFIX,gtimg.com,DIRECT
+- DOMAIN-SUFFIX,hongxiu.com,DIRECT
+- DOMAIN-SUFFIX,hxcdn.net,DIRECT
+- DOMAIN-SUFFIX,iciba.com,DIRECT
+- DOMAIN-SUFFIX,ifeng.com,DIRECT
+- DOMAIN-SUFFIX,ifengimg.com,DIRECT
+- DOMAIN-SUFFIX,images-amazon.com,DIRECT
+- DOMAIN-SUFFIX,ipip.net,DIRECT
+- DOMAIN-SUFFIX,iqiyi.com,DIRECT
+- DOMAIN-SUFFIX,jd.com,DIRECT
+- DOMAIN-SUFFIX,jianshu.com,DIRECT
+- DOMAIN-SUFFIX,knewone.com,DIRECT
+- DOMAIN-SUFFIX,le.com,DIRECT
+- DOMAIN-SUFFIX,lecloud.com,DIRECT
+- DOMAIN-SUFFIX,lemicp.com,DIRECT
+- DOMAIN-SUFFIX,luoo.net,DIRECT
+- DOMAIN-SUFFIX,meituan.com,DIRECT
+- DOMAIN-SUFFIX,meituan.net,DIRECT
+- DOMAIN-SUFFIX,mi.com,DIRECT
+- DOMAIN-SUFFIX,miaopai.com,DIRECT
+- DOMAIN-SUFFIX,miui.com,DIRECT
+- DOMAIN-SUFFIX,miwifi.com,DIRECT
+- DOMAIN-SUFFIX,mob.com,DIRECT
+- DOMAIN-SUFFIX,netease.com,DIRECT
+- DOMAIN-SUFFIX,oschina.net,DIRECT
+- DOMAIN-SUFFIX,ppsimg.com,DIRECT
+- DOMAIN-SUFFIX,pstatp.com,DIRECT
+- DOMAIN-SUFFIX,qcloud.com,DIRECT
+- DOMAIN-SUFFIX,qdaily.com,DIRECT
+- DOMAIN-SUFFIX,qdmm.com,DIRECT
+- DOMAIN-SUFFIX,qhimg.com,DIRECT
+- DOMAIN-SUFFIX,qidian.com,DIRECT
+- DOMAIN-SUFFIX,qihucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiniu.com,DIRECT
+- DOMAIN-SUFFIX,qiniucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiyipic.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,qqurl.com,DIRECT
+- DOMAIN-SUFFIX,rarbg.is,DIRECT
+- DOMAIN-SUFFIX,rr.tv,DIRECT
+- DOMAIN-SUFFIX,ruguoapp.com,DIRECT
+- DOMAIN-SUFFIX,segmentfault.com,DIRECT
+- DOMAIN-SUFFIX,sinaapp.com,DIRECT
+- DOMAIN-SUFFIX,sogou.com,DIRECT
+- DOMAIN-SUFFIX,sogoucdn.com,DIRECT
+- DOMAIN-SUFFIX,sohu.com,DIRECT
+- DOMAIN-SUFFIX,soku.com,DIRECT
+- DOMAIN-SUFFIX,speedtest.net,DIRECT
+- DOMAIN-SUFFIX,sspai.com,DIRECT
+- DOMAIN-SUFFIX,suning.com,DIRECT
+- DOMAIN-SUFFIX,tenpay.com,DIRECT
+- DOMAIN-SUFFIX,tmall.com,DIRECT
+- DOMAIN-SUFFIX,tudou.com,DIRECT
+- DOMAIN-SUFFIX,umetrip.com,DIRECT
+- DOMAIN-SUFFIX,upaiyun.com,DIRECT
+- DOMAIN,update.microsoft.com,DIRECT
+- DOMAIN-SUFFIX,upyun.com,DIRECT
+- DOMAIN-SUFFIX,veryzhun.com,DIRECT
+- DOMAIN-SUFFIX,weibo.com,DIRECT
+- DOMAIN-SUFFIX,xiami.com,DIRECT
+- DOMAIN-SUFFIX,xiami.net,DIRECT
+- DOMAIN-SUFFIX,xiaomicp.com,DIRECT
+- DOMAIN-SUFFIX,ximalaya.com,DIRECT
+- DOMAIN-SUFFIX,xmcdn.com,DIRECT
+- DOMAIN-SUFFIX,xunlei.com,DIRECT
+- DOMAIN-SUFFIX,yhd.com,DIRECT
+- DOMAIN-SUFFIX,yihaodianimg.com,DIRECT
+- DOMAIN-SUFFIX,yinxiang.com,DIRECT
+- DOMAIN-SUFFIX,ykimg.com,DIRECT
+- DOMAIN-SUFFIX,youdao.com,DIRECT
+- DOMAIN-SUFFIX,youku.com,DIRECT
+- DOMAIN-SUFFIX,zealer.com,DIRECT
+- DOMAIN-SUFFIX,zhihu.com,DIRECT
+- DOMAIN-SUFFIX,zhimg.com,DIRECT
+- DOMAIN-SUFFIX,chinacloudapi.cn,DIRECT
+- DOMAIN-SUFFIX,mymm.com,DIRECT
+- DOMAIN-SUFFIX,akadns.net,DIRECT
+
+# LAN
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+
+# Final
+- GEOIP,CN,DIRECT
+- MATCH,🚀 Proxy
