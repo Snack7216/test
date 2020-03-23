@@ -6,7 +6,7 @@
 
 
 
-external-controller: 127.0.0.1:7892
+external-controller: 0.0.0.0：7216
 port: 7890
 socks-port: 7891
 
