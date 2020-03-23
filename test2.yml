@@ -9,6 +9,9 @@
 external-controller: 0.0.0.0：7216
 port: 7890
 socks-port: 7891
+llow-lan: ture
+mode: Rule
+log-level: silent
 
 Proxy: [{"type":"vmess","cipher":"auto","name":"233v2.com_www.okashi2434.space","server":"www.okashi2434.space","port":"443","uuid":"c581fbc1-4dd4-4dc5-8919-cf0bfd29b137","alterId":"4","network":"ws","tls":true,"ws-path":"/7216ma","ws-headers":{"host":"www.okashi2434.space"}}]
 
