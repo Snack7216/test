@@ -17,6 +17,19 @@ Proxy Group:
   name: 🚀 Proxy
   proxies: ["233v2.com_www.okashi2434.space"]
 - type: select
+  name: 🎬 Netflix
+  proxies: ["233v2.com_www.okashi2434.space"]
+- type: url-test
+  name: US
+  proxies: ["233v2.com_www.okashi2434.space"]
+  url: http://www.qualcomm.cn/generate_204
+  interval: 1200
+- type: url-test
+  name: HK
+  proxies: ["233v2.com_www.okashi2434.space"]
+  url: http://www.qualcomm.cn/generate_204
+  interval: 1200
+- type: select
   name: 🍎 Apple
   proxies:
     - DIRECT
