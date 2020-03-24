@@ -1,249 +1,230 @@
-# https://example.com/Clash.yaml
-
-
-
-
-
-
-
-external-controller: 0.0.0.0：9090
 port: 7890
 socks-port: 7891
+redir-port: 7892
 allow-lan: true
 mode: Rule
 log-level: silent
-
-Proxy: [{"type":"vmess","cipher":"auto","name":"233v2.com_www.okashi2434.space","server":"www.okashi2434.space","port":"443","uuid":"c581fbc1-4dd4-4dc5-8919-cf0bfd29b137","alterId":"4","network":"ws","tls":true,"ws-path":"/7216ma","ws-headers":{"host":"www.okashi2434.space"}}]
-
+external-controller: 0.0.0.0：9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+  fallback:
+    - 1.1.1.1
+    - 8.8.8.8
+cfw-bypass:
+  - qq.com
+  - localhost
+  - 127.*
+  - 10.*
+  - 172.16.*
+  - 172.17.*
+  - 172.18.*
+  - 172.19.*
+  - 172.20.*
+  - 172.21.*
+  - 172.22.*
+  - 172.23.*
+  - 172.24.*
+  - 172.25.*
+  - 172.26.*
+  - 172.27.*
+  - 172.28.*
+  - 172.29.*
+  - 172.30.*
+  - 172.31.*
+  - 192.168.*
+  - <local>
+cfw-latency-timeout: 3000
+Proxy:
+- type: vmess
+  cipher: auto
+  name: 233v2.com_www.okashi2434.space
+  server: www.okashi2434.space
+  port: "443"
+  uuid: c581fbc1-4dd4-4dc5-8919-cf0bfd29b137
+  alterId: "4"
+  network: ws
+  tls: true
+  ws-path: /7216ma
+  ws-headers:
+    host: www.okashi2434.space
 Proxy Group:
 - type: select
-  name: 🚀 Proxy
-  proxies: ["233v2.com_www.okashi2434.space"]
+  name: "\U0001F680 Proxy"
+  proxies:
+  - 233v2.com_www.okashi2434.space
 - type: select
-  name: 🎬 Netflix
-  proxies: ["233v2.com_www.okashi2434.space"]
+  name: "\U0001F3AC Netflix"
+  proxies:
+  - 233v2.com_www.okashi2434.space
 - type: url-test
   name: US
-  proxies: ["233v2.com_www.okashi2434.space"]
+  proxies:
+  - 233v2.com_www.okashi2434.space
   url: http://www.qualcomm.cn/generate_204
   interval: 1200
 - type: url-test
   name: HK
-  proxies: ["233v2.com_www.okashi2434.space"]
+  proxies:
+  - 233v2.com_www.okashi2434.space
   url: http://www.qualcomm.cn/generate_204
   interval: 1200
 - type: select
-  name: 🍎 Apple
+  name: "\U0001F34E Apple"
   proxies:
-    - DIRECT
-    - 🚀 Proxy
-    - US
-    - HK
+  - DIRECT
+  - "\U0001F680 Proxy"
+  - US
+  - HK
 - type: select
-  name: 🍎 Apple CDN
+  name: "\U0001F34E Apple CDN"
   proxies:
-    - DIRECT
-    - 🍎 Apple
-
+  - DIRECT
+  - "\U0001F34E Apple"
 Rule:
-# http://www.jjinc.com.au/announcements/apple170008services
-#
-# Apple 直连
-#
-# Maps
-# Settings
-#
-# 一些 com.apple.appstored* 会连接的 API（优先级高）
-#
-- DOMAIN,apps.apple.com,🍎 Apple
-- DOMAIN,xp.apple.com,🍎 Apple
-- DOMAIN,bag.itunes.apple.com,🍎 Apple
-- DOMAIN,api-edge.apps.apple.com,🍎 Apple
-- DOMAIN,api.apps.apple.com,🍎 Apple
-- DOMAIN,play.itunes.apple.com,🍎 Apple
-- DOMAIN,se.itunes.apple.com,🍎 Apple
-- DOMAIN,se-edge.itunes.apple.com,🍎 Apple
-- DOMAIN,su.itunes.apple.com,🍎 Apple
-- DOMAIN,upp.itunes.apple.com,🍎 Apple
-- DOMAIN,beta.music.apple.com,🍎 Apple
-- DOMAIN-KEYWORD,buy.itunes.apple.com,🍎 Apple
-#
-# Apple Global CDN
-#
-# iOS App Store
-- DOMAIN,iosapps.itunes.apple.com,🍎 Apple CDN
-# Mac App Store
-- DOMAIN,osxapps.itunes.apple.com,🍎 Apple CDN
-# Update
-- DOMAIN,supportdownload.apple.com,🍎 Apple CDN
-# Update
-- DOMAIN,appldnld.apple.com,🍎 Apple CDN
-# Update
-- DOMAIN,swcdn.apple.com,🍎 Apple CDN
-- DOMAIN,apptrailers.itunes.apple.com,🍎 Apple CDN
-- DOMAIN,updates-http.cdn-apple.com,🍎 Apple CDN
-# App Store & iTunes Images
-- DOMAIN-SUFFIX,mzstatic.com,🍎 Apple CDN
-# Mac App Store
-# iOS App Store
-#
-# Apple Non-China CDN
-#
-# Trailer
-- DOMAIN-SUFFIX,hls.itunes.apple.com,🚀 Proxy
-# Movie Stream
-- DOMAIN-SUFFIX,hls-amt.itunes.apple.com,🚀 Proxy
-# iTunes Music Stream
-- DOMAIN-SUFFIX,audio-ssl.itunes.apple.com,🚀 Proxy
-- DOMAIN-SUFFIX,cdn-apple.com,🚀 Proxy
-- DOMAIN,cdn.apple-cloudkit.com,🚀 Proxy
-# Developer
-- DOMAIN,devimages-cdn.apple.com,🚀 Proxy
-# Developer
-- DOMAIN,devstreaming-cdn.apple.com,🚀 Proxy
-- DOMAIN,js-cdn.music.apple.com,🚀 Proxy
-#
-# Apple News
-#
+- "DOMAIN,apps.apple.com,\U0001F34E Apple"
+- "DOMAIN,xp.apple.com,\U0001F34E Apple"
+- "DOMAIN,bag.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,api-edge.apps.apple.com,\U0001F34E Apple"
+- "DOMAIN,api.apps.apple.com,\U0001F34E Apple"
+- "DOMAIN,play.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,se.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,se-edge.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,su.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,upp.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,beta.music.apple.com,\U0001F34E Apple"
+- "DOMAIN-KEYWORD,buy.itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN,iosapps.itunes.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,osxapps.itunes.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,supportdownload.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,appldnld.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,swcdn.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,apptrailers.itunes.apple.com,\U0001F34E Apple CDN"
+- "DOMAIN,updates-http.cdn-apple.com,\U0001F34E Apple CDN"
+- "DOMAIN-SUFFIX,mzstatic.com,\U0001F34E Apple CDN"
+- "DOMAIN-SUFFIX,hls.itunes.apple.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,hls-amt.itunes.apple.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,audio-ssl.itunes.apple.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,cdn-apple.com,\U0001F680 Proxy"
+- "DOMAIN,cdn.apple-cloudkit.com,\U0001F680 Proxy"
+- "DOMAIN,devimages-cdn.apple.com,\U0001F680 Proxy"
+- "DOMAIN,devstreaming-cdn.apple.com,\U0001F680 Proxy"
+- "DOMAIN,js-cdn.music.apple.com,\U0001F680 Proxy"
 - DOMAIN-SUFFIX,apple.news,US
 - DOMAIN,news-events.apple.com,US
 - DOMAIN,news-edge.apple.com,US
 - DOMAIN,apple.comscoreresearch.com,US
-#
-# Apple 其他直连
-#
 - DOMAIN,api.smoot.apple.com,DIRECT
 - DOMAIN,captive.apple.com,DIRECT
 - DOMAIN,configuration.apple.com,DIRECT
 - DOMAIN,guzzoni.apple.com,DIRECT
-# Apple Pay
 - DOMAIN,smp-device-content.apple.com,DIRECT
-# Apple Music Streaming
 - DOMAIN,aod.itunes.apple.com,DIRECT
 - DOMAIN,api.smoot.apple.cn,DIRECT
-# locationd
 - DOMAIN,gs-loc.apple.com,DIRECT
-# Apple Music Streaming
 - DOMAIN,mvod.itunes.apple.com,DIRECT
-# Apple Music Streaming
 - DOMAIN,streamingaudio.itunes.apple.com,DIRECT
-# Reserve
 - DOMAIN,reserve-prime.apple.com,DIRECT
 - DOMAIN-SUFFIX,ess.apple.com,DIRECT
 - DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
 - DOMAIN-SUFFIX,push.apple.com,DIRECT
-# Apple Music
 - DOMAIN-SUFFIX,music.apple.com,DIRECT
-# GeoServices.framework
 - DOMAIN-SUFFIX,ls.apple.com,DIRECT
-# Asset Cache Locator Service
 - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
-# Caching Server Registration
 - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
-# Apple Pay
 - DOMAIN-KEYWORD,smp-device,DIRECT
-# Apple Pay
-# Apple Pay
-#
-# Apple 其他自选
-#
-- DOMAIN-SUFFIX,aaplimg.com,🍎 Apple
-- DOMAIN-SUFFIX,apple.co,🍎 Apple
-- DOMAIN-SUFFIX,itunes.com,🍎 Apple
-- DOMAIN-SUFFIX,itunes.apple.com,🍎 Apple
-# iCloud 上传和下载
-- DOMAIN-SUFFIX,icloud-content.com,🍎 Apple
-- DOMAIN-SUFFIX,me.com,🍎 Apple
-- DOMAIN-SUFFIX,apple.com,🍎 Apple
-- DOMAIN-SUFFIX,icloud.com,🍎 Apple
-- DOMAIN-SUFFIX,apple-cloudkit.com,🍎 Apple
-# > Netflix
-- DOMAIN-SUFFIX,fast.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflix.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflix.net,🎬 Netflix
-- DOMAIN-SUFFIX,nflxext.com,🎬 Netflix
-- DOMAIN-SUFFIX,nflximg.com,🎬 Netflix
-- DOMAIN-SUFFIX,nflximg.net,🎬 Netflix
-- DOMAIN-SUFFIX,nflxso.net,🎬 Netflix
-- DOMAIN-SUFFIX,nflxvideo.net,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest0.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest1.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest2.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest3.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest4.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest5.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest6.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest7.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest8.com,🎬 Netflix
-- DOMAIN-SUFFIX,netflixdnstest9.com,🎬 Netflix
-- IP-CIDR,23.246.0.0/18,🎬 Netflix,no-resolve
-- IP-CIDR,37.77.184.0/21,🎬 Netflix,no-resolve
-- IP-CIDR,45.57.0.0/17,🎬 Netflix,no-resolve
-- IP-CIDR,64.120.128.0/17,🎬 Netflix,no-resolve
-- IP-CIDR,66.197.128.0/17,🎬 Netflix,no-resolve
-- IP-CIDR,108.175.32.0/20,🎬 Netflix,no-resolve
-- IP-CIDR,192.173.64.0/18,🎬 Netflix,no-resolve
-- IP-CIDR,198.38.96.0/19,🎬 Netflix,no-resolve
-- IP-CIDR,198.45.48.0/20,🎬 Netflix,no-resolve
-# > HBO NOW
-- DOMAIN-SUFFIX,hbo.com,🚀 Proxy
-- DOMAIN-SUFFIX,hbogo.com,🚀 Proxy
-- DOMAIN-SUFFIX,hbonow.com,🚀 Proxy
-# > Hulu
-- DOMAIN-SUFFIX,hulu.com,🚀 Proxy
-- DOMAIN-SUFFIX,huluim.com,🚀 Proxy
-- DOMAIN-SUFFIX,hulustream.com,🚀 Proxy
-# YouTube
-- DOMAIN,youtubei.googleapis.com,🚀 Proxy
-- DOMAIN-SUFFIX,youtube.com,🚀 Proxy
-- DOMAIN-SUFFIX,googlevideo.com,🚀 Proxy
-- DOMAIN-SUFFIX,youtube-nocookie.com,🚀 Proxy
-- DOMAIN-SUFFIX,youtu.be,🚀 Proxy
-# Youtube Music
-- DOMAIN-SUFFIX,music.youtube.com,🚀 Proxy
-# Luminary
+- "DOMAIN-SUFFIX,aaplimg.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,apple.co,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,itunes.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,itunes.apple.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,icloud-content.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,me.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,apple.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,icloud.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,apple-cloudkit.com,\U0001F34E Apple"
+- "DOMAIN-SUFFIX,fast.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflix.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflix.net,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,nflxext.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,nflximg.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,nflximg.net,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,nflxso.net,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,nflxvideo.net,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest0.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest1.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest2.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest3.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest4.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest5.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest6.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest7.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest8.com,\U0001F3AC Netflix"
+- "DOMAIN-SUFFIX,netflixdnstest9.com,\U0001F3AC Netflix"
+- "IP-CIDR,23.246.0.0/18,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,37.77.184.0/21,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,45.57.0.0/17,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,64.120.128.0/17,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,66.197.128.0/17,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,108.175.32.0/20,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,192.173.64.0/18,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,198.38.96.0/19,\U0001F3AC Netflix,no-resolve"
+- "IP-CIDR,198.45.48.0/20,\U0001F3AC Netflix,no-resolve"
+- "DOMAIN-SUFFIX,hbo.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,hbogo.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,hbonow.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,hulu.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,huluim.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,hulustream.com,\U0001F680 Proxy"
+- "DOMAIN,youtubei.googleapis.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,youtube.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,googlevideo.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,youtube-nocookie.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,youtu.be,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,music.youtube.com,\U0001F680 Proxy"
 - DOMAIN-SUFFIX,luminarypodcasts.com,US
-- DOMAIN-SUFFIX,t.me,🚀 Proxy
-- DOMAIN-SUFFIX,tdesktop.com,🚀 Proxy
-- DOMAIN-SUFFIX,telegra.ph,🚀 Proxy
-- DOMAIN-SUFFIX,telegram.me,🚀 Proxy
-- DOMAIN-SUFFIX,telegram.org,🚀 Proxy
-- IP-CIDR,91.108.4.0/22,🚀 Proxy,no-resolve
-- IP-CIDR,91.108.8.0/22,🚀 Proxy,no-resolve
-- IP-CIDR,91.108.12.0/22,🚀 Proxy,no-resolve
-- IP-CIDR,91.108.16.0/22,🚀 Proxy,no-resolve
-- IP-CIDR,91.108.56.0/22,🚀 Proxy,no-resolve
-- IP-CIDR,149.154.160.0/20,🚀 Proxy,no-resolve
-# 可能被屏蔽
-- DOMAIN-KEYWORD,evernote,🚀 Proxy
-# Bloombeg
-# Taiwan
-- DOMAIN-SUFFIX,tw,🚀 Proxy
-- DOMAIN-KEYWORD,bitly,🚀 Proxy
-- DOMAIN-KEYWORD,blogspot,🚀 Proxy
-- DOMAIN-KEYWORD,dropbox,🚀 Proxy
-- DOMAIN-KEYWORD,facebook,🚀 Proxy
-- DOMAIN-KEYWORD,gmail,🚀 Proxy
-- DOMAIN-KEYWORD,google,🚀 Proxy
-- DOMAIN-KEYWORD,instagram,🚀 Proxy
-- DOMAIN-KEYWORD,oculus,🚀 Proxy
-- DOMAIN-KEYWORD,twitter,🚀 Proxy
-- DOMAIN-KEYWORD,whatsapp,🚀 Proxy
-- DOMAIN-KEYWORD,youtube,🚀 Proxy
-- DOMAIN-SUFFIX,cdn.ampproject.org,🚀 Proxy
-- DOMAIN-SUFFIX,fb.com,🚀 Proxy
-- DOMAIN-SUFFIX,fb.me,🚀 Proxy
-- DOMAIN-SUFFIX,fbcdn.net,🚀 Proxy
-- DOMAIN-SUFFIX,gstatic.com,🚀 Proxy
-- DOMAIN-SUFFIX,scdn.co,🚀 Proxy
-- DOMAIN-SUFFIX,t.co,🚀 Proxy
-- DOMAIN-SUFFIX,telegra.ph,🚀 Proxy
-- DOMAIN-SUFFIX,twimg.co,🚀 Proxy
-- DOMAIN-SUFFIX,twimg.com,🚀 Proxy
-- DOMAIN-SUFFIX,twitpic.com,🚀 Proxy
-- DOMAIN-SUFFIX,youtu.be,🚀 Proxy
-- DOMAIN-SUFFIX,ytimg.com,🚀 Proxy
-# Alibaba
+- "DOMAIN-SUFFIX,t.me,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,tdesktop.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,telegra.ph,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,telegram.me,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,telegram.org,\U0001F680 Proxy"
+- "IP-CIDR,91.108.4.0/22,\U0001F680 Proxy,no-resolve"
+- "IP-CIDR,91.108.8.0/22,\U0001F680 Proxy,no-resolve"
+- "IP-CIDR,91.108.12.0/22,\U0001F680 Proxy,no-resolve"
+- "IP-CIDR,91.108.16.0/22,\U0001F680 Proxy,no-resolve"
+- "IP-CIDR,91.108.56.0/22,\U0001F680 Proxy,no-resolve"
+- "IP-CIDR,149.154.160.0/20,\U0001F680 Proxy,no-resolve"
+- "DOMAIN-KEYWORD,evernote,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,tw,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,bitly,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,blogspot,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,dropbox,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,facebook,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,gmail,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,google,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,instagram,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,oculus,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,twitter,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,whatsapp,\U0001F680 Proxy"
+- "DOMAIN-KEYWORD,youtube,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,cdn.ampproject.org,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,fb.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,fb.me,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,fbcdn.net,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,gstatic.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,scdn.co,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,t.co,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,telegra.ph,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,twimg.co,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,twimg.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,twitpic.com,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,youtu.be,\U0001F680 Proxy"
+- "DOMAIN-SUFFIX,ytimg.com,\U0001F680 Proxy"
 - DOMAIN-KEYWORD,alibaba-inc,DIRECT
 - DOMAIN-KEYWORD,alibaba,DIRECT
 - DOMAIN-KEYWORD,alipay-inc,DIRECT
@@ -254,16 +235,11 @@ Rule:
 - DOMAIN-KEYWORD,aliyun,DIRECT
 - DOMAIN-KEYWORD,9game,DIRECT
 - DOMAIN-KEYWORD,ucweb,DIRECT
-# Battle.net
 - DOMAIN-SUFFIX,blizzard.com,DIRECT
 - DOMAIN-SUFFIX,battle.net,DIRECT
-# P2P
 - DOMAIN-KEYWORD,tracker,DIRECT
-# Booking
 - DOMAIN-SUFFIX,booking.com,DIRECT
 - DOMAIN-SUFFIX,booking.cn,DIRECT
-# Misc
-# iStat Menu IP Test
 - DOMAIN,ip.bjango.com,DIRECT
 - DOMAIN-SUFFIX,biquge.com.tw,DIRECT
 - DOMAIN-SUFFIX,maoyun.tv,DIRECT
@@ -273,7 +249,6 @@ Rule:
 - DOMAIN-SUFFIX,zmzapi.com,DIRECT
 - DOMAIN-SUFFIX,zmzapi.net,DIRECT
 - DOMAIN-SUFFIX,zmzfile.com,DIRECT
-# China Apps
 - DOMAIN-SUFFIX,cn,DIRECT
 - DOMAIN-KEYWORD,-cn,DIRECT
 - DOMAIN-KEYWORD,alicdn,DIRECT
@@ -392,8 +367,6 @@ Rule:
 - DOMAIN-SUFFIX,chinacloudapi.cn,DIRECT
 - DOMAIN-SUFFIX,mymm.com,DIRECT
 - DOMAIN-SUFFIX,akadns.net,DIRECT
-
-# LAN
 - DOMAIN-SUFFIX,local,DIRECT
 - IP-CIDR,127.0.0.0/8,DIRECT
 - IP-CIDR,172.16.0.0/12,DIRECT
@@ -401,7 +374,12 @@ Rule:
 - IP-CIDR,10.0.0.0/8,DIRECT
 - IP-CIDR,17.0.0.0/8,DIRECT
 - IP-CIDR,100.64.0.0/10,DIRECT
-
-# Final
+- IP-CIDR,160.16.0.0/10,DIRECT
 - GEOIP,CN,DIRECT
-- MATCH,🚀 Proxy
+- "MATCH,\U0001F680 Proxy"
+secret: ""
+
+
+
+
+
