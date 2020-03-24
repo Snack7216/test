@@ -9,7 +9,7 @@
 external-controller: 0.0.0.0：9090
 port: 7890
 socks-port: 7891
-allow-lan: ture
+allow-lan: true
 mode: Rule
 log-level: silent
 
