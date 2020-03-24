@@ -18,9 +18,7 @@ Proxy: [{"type":"vmess","cipher":"auto","name":"233v2.com_www.okashi2434.space",
 Proxy Group:
 - type: select
   name: 🚀 Proxy
-  proxies: 
-  -["233v2.com_www.okashi2434.space"]
-  - DIRECT
+  proxies: ["233v2.com_www.okashi2434.space"]
 - type: select
   name: 🎬 Netflix
   proxies: ["233v2.com_www.okashi2434.space"]
