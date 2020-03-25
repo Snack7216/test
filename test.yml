@@ -1199,6 +1199,7 @@ Rule:
   - DOMAIN-SUFFIX,worldbank.org,Domestic
   - DOMAIN-SUFFIX,worldscientific.com,Domestic
 # > Other
+  - DOMAIN-SUFFIX,booth.pm,Domestic
   - DOMAIN-SUFFIX,17jita.com,Domestic
   - DOMAIN-SUFFIX,360in.com,Domestic
   - DOMAIN-SUFFIX,51ym.me,Domestic
