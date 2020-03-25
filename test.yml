@@ -39,6 +39,7 @@ cfw-bypass:
   - 172.30.*
   - 172.31.*
   - 192.168.*
+  - 160.16.*
   - <local>
 cfw-latency-timeout: 3000
 Proxy:
@@ -163,6 +164,7 @@ Rule:
   - IP-CIDR,127.0.0.0/8,🟢 直接连接
   - IP-CIDR,172.16.0.0/12,🟢 直接连接
   - IP-CIDR,192.168.0.0/16,🟢 直接连接
+  - IP-CIDR,160.16.0.0/16,🟢 直接连接
   - IP-CIDR6,::1/128,🟢 直接连接
   - IP-CIDR6,fc00::/7,🟢 直接连接
   - IP-CIDR6,fe80::/10,🟢 直接连接
@@ -201,6 +203,7 @@ Rule:
   - DOMAIN-SUFFIX,sswow.xyz,🟢 直接连接
   - DOMAIN-SUFFIX,kxdao.net,🟢 直接连接
   - DOMAIN-SUFFIX,xd0.com,🟢 直接连接
+  - DOMAIN-SUFFIX,booth.pm,🟢 直接连接
   - DOMAIN-KEYWORD,admarvel,🔴 拦截连接
   - DOMAIN-KEYWORD,admaster,🔴 拦截连接
   - DOMAIN-KEYWORD,adsage,🔴 拦截连接
