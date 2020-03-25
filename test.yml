@@ -60,7 +60,7 @@ cfw-bypass:
   - <local>
 cfw-latency-timeout: 3000
 Proxy:
-  - {name: 233v2.com_www.okashi2434.space, 
+  - {name: test, 
   server: www.okashi2434.space, 
   port: 443, 
   type: vmess, 
@@ -114,7 +114,7 @@ Proxy Group:
   - name: "Proxy"
     type: select
     proxies:
-      - 233v2.com_www.okashi2434.space
+      - test
 Rule:
 # Liby.list
 # Internet Service Providers Hijacking 运营商劫持
